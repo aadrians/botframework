@@ -27,6 +27,12 @@ var bot = new builder.UniversalBot(connector, function (session) {
     session.send("This message is sent from bot", session.message.text);
 });
 
+// Serve a static web page
+server.get(/.*/, restify.serveStatic({
+	'directory': '.',
+	'default': 'index.html'
+}));
+
 // FB page ID: 127971741225929
 // URL: https://www.facebook.com/TPA-Musihoven-127971741225929/
 
